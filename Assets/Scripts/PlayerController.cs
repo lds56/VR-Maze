@@ -5,10 +5,10 @@ public class PlayerController : MonoBehaviour {
 	
 	public float speed;
 	//public float jumpSpeed;
-	//public float gravity;
+	public float gravity;
 	//public float sensitivity;
 
-	//private Vector3 moveDirection = Vector3.zero;
+	private Vector3 moveDirection = Vector3.zero;
 	private bool moveStatus = false;
 	//private float prevMoveY = 0;
 
@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		float curSpeed = moveStatus? speed : 0;
-		controller.Move (Camera.main.transform.forward * 0.01f * curSpeed);
+		moveDirection = Camera.main.transform.forward * 0.01f * curSpeed;
+		moveDirection.y -= gravity;
+		controller.Move (moveDirection);
 
 		// Debug.Log("Forward: " + Camera.main.transform.forward);
 
