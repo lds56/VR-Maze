@@ -4,11 +4,11 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	
 	public float speed;
-	public float jumpSpeed;
-	public float gravity;
-	public float sensitivity;
+	//public float jumpSpeed;
+	//public float gravity;
+	//public float sensitivity;
 
-	private Vector3 moveDirection = Vector3.zero;
+	//private Vector3 moveDirection = Vector3.zero;
 	private bool moveStatus = false;
 	//private float prevMoveY = 0;
 
@@ -17,16 +17,19 @@ public class PlayerController : MonoBehaviour {
 		CharacterController controller = GetComponent<CharacterController>();
 
 		if (Input.GetMouseButtonDown (0)) {
-			Debug.Log("Mouse down");
+			//Debug.Log("Mouse down");
 			moveStatus = !moveStatus;
 		}
 
 		float curSpeed = moveStatus? speed : 0;
 		controller.Move (Camera.main.transform.forward * 0.01f * curSpeed);
 
-		Debug.Log("Forward: " + Camera.main.transform.forward);
+		// Debug.Log("Forward: " + Camera.main.transform.forward);
 
 	}
 
-
+	void OnTriggerEnter(Collider other) {
+		//Debug.Log ("Collide");
+		moveStatus = false;
+	}
 }
