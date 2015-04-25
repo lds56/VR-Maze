@@ -19,18 +19,23 @@ public class PlayerController : MonoBehaviour {
 
 		CharacterController controller = GetComponent<CharacterController>();
 
-		if (Input.GetMouseButtonDown (0)) {
+		/*if (Input.GetMouseButtonDown (0)) {
 			Debug.Log("Mouse down");
 			moveStatus = !moveStatus;
-		}
+		}*/
 
 		float curSpeed = moveStatus? speed : 0;
 		moveDirection = head.transform.forward * 0.01f * curSpeed;
 		moveDirection.y -= gravity;
 		controller.Move (moveDirection);
 
-		Debug.Log("Forward: " + head.transform.forward);
+		//Debug.Log("Forward: " + head.transform.forward);
 
+	}
+
+	public void moveOrStop()
+	{
+		moveStatus = !moveStatus;
 	}
 
 	//void OnTriggerEnter(Collider other) {
