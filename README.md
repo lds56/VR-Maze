@@ -5,7 +5,7 @@ A virtual reality maze game built with Unity3d which is compatible with Google C
 **[DONE]** Create a character
 
 ### Phase II - Project Pangu
-Add the terrain of the maze
+**[DONE]** Add the terrain of the maze
 
 ### Phase III - Project Gaia
 Add texture
