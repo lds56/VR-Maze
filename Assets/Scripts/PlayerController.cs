@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 	private bool moveStatus = false;
 	private CharacterController controller;
+	private Animator ani;
 	//private Rigidbody rb;
 	//private float prevMoveY = 0;
 	void Start(){
 		//rb = GetComponent<Rigidbody> ();
+		ani = gameObject.GetComponent<Animator> ();
 		head=GameObject.Find("Head");
 		player = GameObject.Find ("PlayerArmature");
 		controller = GetComponent<CharacterController>();
@@ -35,7 +37,10 @@ public class PlayerController : MonoBehaviour {
 		player.transform.eulerAngles = new Vector3 (270, head.transform.eulerAngles.y, 0);
 		//transform.eulerAngles=new Vector3(head.transform.eulerAngles.x,head.transform.eulerAngles.y,head.transform.eulerAngles.z);
 		//Debug.Log("Forward: " + head.transform.forward);
-
+		if (moveStatus)
+			ani.speed = 1;
+		else 
+			ani.speed = 0;
 	}
 	/*
 	public void SetGazedAt(bool gazedAt) {
