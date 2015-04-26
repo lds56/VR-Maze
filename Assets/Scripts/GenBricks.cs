@@ -46,9 +46,13 @@ public class GenBricks : MonoBehaviour {
 			for (int j = 0; j < mazeSize; j++) {
 				if (isBricks [i, j] == 1) {
 					newBrick = (Transform)Instantiate (BrickPrefab, new Vector3 (i - 15, mazeHeight1, j - 15), Quaternion.identity);
+					newBrick.parent = transform;
 					newBrick = (Transform)Instantiate (BrickPrefab, new Vector3 (i - 15, mazeHeight2, j - 15), Quaternion.identity);
+					newBrick.parent = transform;
 					newBrick = (Transform)Instantiate (BrickPrefab, new Vector3 (i - 15, mazeHeight3, j - 15), Quaternion.identity);
+					newBrick.parent = transform;
 					newBrick = (Transform)Instantiate (BrickPrefab, new Vector3 (i - 15, mazeHeight4, j - 15), Quaternion.identity);
+					newBrick.parent = transform;
 					//					newBrickBase.name = string.Format ("{0}-{1}-base brick", i, j);
 					//					newBrickBase.parent = transform;
 					//					Bricks [i, j, 0] = newBrickBase;
