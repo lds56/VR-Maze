@@ -9,6 +9,7 @@ public class GenBricks : MonoBehaviour {
 	public int [,] isBricks;
 	//	private Transform[,,] Bricks;
 	private int mazeSize = 30;
+	private string path = "maze";
 	private float mazeHeight1 = 0.5f;
 	private float mazeHeight2 = 1.5f;
 	private float mazeHeight3 = 2.5f;
@@ -33,7 +34,8 @@ public class GenBricks : MonoBehaviour {
 		//			isBricks [i, 26] = 1;
 		//		}
 		
-		LoadData(Application.dataPath, "maze.txt");
+//		LoadData(Application.dataPath, "maze.txt");
+		LoadData (path);
 		CreateWall ();
 	}
 	
@@ -71,23 +73,30 @@ public class GenBricks : MonoBehaviour {
 		}
 	}
 	
-	void LoadData(string path, string name)
+	void LoadData(string pathe)
 	{
-		StreamReader sr = null;
-		string line;
-		int lineNo = 0;
-		
-		sr = File.OpenText(path + "//" + name);
-		
-		while ((line = sr.ReadLine()) != null)
-		{
-			for (int i = 0; i < mazeSize; i++) {
-				isBricks[lineNo, i] = int.Parse (line[i].ToString());
+//		StreamReader sr = null;
+//		string line;
+//		int lineNo = 0;
+//		
+//		sr = File.OpenText(path + "//" + name);
+//		
+//		while ((line = sr.ReadLine()) != null)
+//		{
+//			for (int i = 0; i < mazeSize; i++) {
+//				isBricks[lineNo, i] = int.Parse (line[i].ToString());
+//			}
+//			lineNo++;
+//		}
+//		
+//		sr.Close();
+		TextAsset maze = Resources.Load(path) as TextAsset;
+		string [] lines = maze.text.Split ("\n".ToCharArray());
+		for (int i = 0; i < mazeSize; i++) {
+			for (int j = 0; j <  mazeSize; j++) {
+				isBricks[i, j] = int.Parse (lines[i] [j].ToString ());
 			}
-			lineNo++;
 		}
-		
-		sr.Close();
 	}
 	
 }
