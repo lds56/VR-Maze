@@ -8,10 +8,10 @@ A virtual reality maze game built with Unity3d which is compatible with Google C
 **[DONE]** Add the terrain of the maze
 
 ### Phase III - Project Gaia
-Add texture
+**[DONE]** Add texture
 
 ### Phase IV - Project Baldur
-Integrate Google Cardboard SDK
+**[DONE]** Integrate Google Cardboard SDK
 
 ### Phase V - Project X
 Test and run
