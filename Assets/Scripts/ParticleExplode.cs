@@ -15,7 +15,7 @@ public class ParticleExplode : MonoBehaviour {
 			direction = direction.normalized;
 			if (body.gameObject.tag != "creeper") {
 				//body.isKinematic = false;
-				body.AddForce(direction * 5000);
+				body.AddForce(direction * 500);
 				Debug.Log ("aa");
 			}
 

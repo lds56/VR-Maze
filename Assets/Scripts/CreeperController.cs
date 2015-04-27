@@ -53,6 +53,7 @@ public class CreeperController : MonoBehaviour
 	public int gravity;
 	public GameObject target;
 
+	private GameObject cubes;
 	private int mazeSize = 30;
 	private Pos nowPos;
 	private readonly int WALL = 1;
@@ -72,6 +73,7 @@ public class CreeperController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		cubes = GameObject.Find ("Cubes");
 		isBricks = new int [mazeSize, mazeSize];
 		controller = GetComponent<CharacterController>();
 		LoadData ("maze");		
@@ -94,6 +96,15 @@ public class CreeperController : MonoBehaviour
 			Vector3 moveVector = new Vector3(deltaPos.x, -gravity, deltaPos.y) * speed;
 			//moveVector = transform.TransformDirection(moveVector) * speed;
 			controller.Move(moveVector);
+			if(deltaPos.x>0)
+				cubes.transform.eulerAngles=new Vector3(0,0,0);
+			else if(deltaPos.x<0)
+				cubes.transform.eulerAngles=new Vector3(0,180,0);
+			else if(deltaPos.y>0)
+				cubes.transform.eulerAngles=new Vector3(0,270,0);
+			else if(deltaPos.y<0)
+				cubes.transform.eulerAngles=new Vector3(0,90,0);
+
 			//transform.Translate (new Vector3(deltaPos.x, -gravity, deltaPos.y) * speed); //!!!
 			Debug.Log ("next: " + transform.position.x + ", " + transform.position.z);
 		}
@@ -102,7 +113,7 @@ public class CreeperController : MonoBehaviour
 	Pos FindNextStep (Pos endPos)
 	{
 		bool [,] isVisited = new bool [mazeSize, mazeSize];
-		int maxStep = 100;
+		int maxStep = 20;
 		Queue<Pos> queue = new Queue<Pos> ();
 		Pos resultPos = nowPos;
 
