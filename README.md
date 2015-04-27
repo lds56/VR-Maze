@@ -20,11 +20,11 @@ A virtual reality maze game built with Unity3d which is compatible with Google C
 
 ### Acknowledge
 
-不愿透露名字的陈先生
-
 艺术总监 魏先生
 
 产品架构 徐先生
+
+首席体验官 不愿透露名字的陈先生
 
 场景设计兼特技效 另一个陈先生  
 
