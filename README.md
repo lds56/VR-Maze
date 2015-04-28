@@ -18,6 +18,12 @@ A virtual reality maze game built with Unity3d which is compatible with Google C
 
 #### EL PSY CONGROO
 
+### Demo
+
+[Youtube](https://www.youtube.com/watch?v=stC_PSF-1NQ&feature=youtu.be)
+
+[Tudou](http://www.tudou.com/programs/view/f5QiMlbMCkI/)
+
 ### Acknowledge
 
 艺术总监 魏先生 [@weiyuxin](https://github.com/weiyuxin)
